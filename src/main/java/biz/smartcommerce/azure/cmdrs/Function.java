@@ -54,7 +54,7 @@ public class Function extends HttpServlet {
  	
  	@FunctionName("Init")
     public HttpResponseMessage runInit(
-            @HttpTrigger(name = "reqInit", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
    
         context.getLogger().info("Initializing DB and Solr...");
@@ -71,7 +71,7 @@ public class Function extends HttpServlet {
  	
  	@FunctionName("Search")
     public HttpResponseMessage runSearch(
-            @HttpTrigger(name = "reqSearch", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
    
         context.getLogger().info("Searching...");
@@ -88,7 +88,7 @@ public class Function extends HttpServlet {
  	
     @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "reqIndex", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
    
         context.getLogger().info("Java HTTP trigger processed a request.");
