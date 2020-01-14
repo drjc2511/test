@@ -149,8 +149,7 @@ public class Function extends HttpServlet {
 		HttpSolrClient cl = new HttpSolrClient.Builder(solrUrl).withConnectionTimeout(10000).withSocketTimeout(60000).build();
 		SolrInputDocument doc = new SolrInputDocument();
 		doc.addField("id",id);
-		doc.addField("Name", name);
-		doc.addField("Value", value);
+		doc.addField(name, value);
 		cl.add("cmdrs", doc);
 		UpdateResponse response = cl.commit("cmdrs");
 		int status = response.getStatus();
